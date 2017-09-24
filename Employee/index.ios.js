@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import App from './src/containers/App';
 
 export default class Employee extends Component {
   render() {
@@ -50,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Employee', () => Employee);
+AppRegistry.registerComponent('Employee', () => App);
