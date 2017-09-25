@@ -8,7 +8,7 @@ weatherList = [
             "humidity": "50%",
             "sunset": "something"
         },
-        "image": "http://images.clipartpanda.com/sunny-weather-clipart-sunny-weather-ed.svg"
+        "image": "https://randomuser.me/api/portraits/men/67.jpg"
     }];
 
 class WeatherApi {
