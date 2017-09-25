@@ -7,7 +7,7 @@ import {
     NavigatorIOS
 } from 'react-native';
 import {bind} from '../utils/utils';
-import weatherApi from '../api/weatherApi';
+import WeatherApi from '../api/weatherApi';
 import WeathersList from '../components/WeathersList';
 
 class Search extends Component {
@@ -28,7 +28,7 @@ class Search extends Component {
     }
 
     _getAllEmployeesAndUpdateData() {
-        weatherApi.getAllEmployees()
+        WeatherApi.getAllWeatherNodes()
             .then(function (data) {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(data),
@@ -45,7 +45,7 @@ class Search extends Component {
             });
         }
 
-        weatherApi.searchByLocation(text)
+        WeatherApi.searchByLocation(text)
             .then(function (res) {
                 this.setState({
                     text,

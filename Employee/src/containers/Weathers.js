@@ -31,7 +31,7 @@ class Weathers extends Component {
     }
 
     componentDidMount() {
-        EmployeesApi.getAllEmployees()
+        WeatherApi.getAllWeatherNodes()
             .then(function (data) {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(data),
