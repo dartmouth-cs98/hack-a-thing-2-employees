@@ -3,7 +3,7 @@ import {
     NavigatorIOS,
     StyleSheet
 } from 'react-native';
-import Weather from './Weather';
+import Weathers from './Weathers';
 
 
 const WeatherTab = ({props}) => (
@@ -11,7 +11,7 @@ const WeatherTab = ({props}) => (
         style={styles.container}
         initialRoute={{
             title: 'Weather list',
-            component: Weather
+            component: Weathers
         }}/>
 );
 

@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import {bind} from '../utils/utils';
 import EmployeesApi from '../api/mockEmployeesApi';
-import EmployeesList from '../components/EmployeesList';
+import WeathersList from '../components/WeathersList';
 
 class Search extends Component {
-    
+
     constructor(props, context) {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         super(props, context);
@@ -19,14 +19,14 @@ class Search extends Component {
             text: 'Search by name',
             dataSource: ds.cloneWithRows([])
         };
-        
+
         bind(this)('_searchInputOnChange', '_getAllEmployeesAndUpdateData')
     }
-    
+
     componentDidMount() {
         this._getAllEmployeesAndUpdateData();
     }
-    
+
     _getAllEmployeesAndUpdateData() {
         EmployeesApi.getAllEmployees()
             .then(function (data) {
@@ -36,7 +36,7 @@ class Search extends Component {
                 })
             }.bind(this));
     }
-    
+
     _searchInputOnChange(text) {
         if (text.length < 1) {
             this._getAllEmployeesAndUpdateData();
@@ -44,7 +44,7 @@ class Search extends Component {
                 text
             });
         }
-        
+
         EmployeesApi.searchEmployeeByName(text)
             .then(function (res) {
                 this.setState({
@@ -53,7 +53,7 @@ class Search extends Component {
                 })
             }.bind(this))
     }
-    
+
     render() {
         return (
             <View style={styles.container}>
@@ -63,7 +63,7 @@ class Search extends Component {
                     clearTextOnFocus={true}
                     value={this.state.text}
                     onChangeText={this._searchInputOnChange}/>
-                <EmployeesList
+                <WeathersList
                     dataSource={this.state.dataSource}
                     navigator={this.props.navigator}/>
             </View>

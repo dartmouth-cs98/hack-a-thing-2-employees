@@ -7,36 +7,36 @@ import {
     NavigatorIOS
 } from 'react-native';
 import {bind} from '../utils/utils';
-import Employee from '../components/Employee';
-import EmployeeDetails from '../components/EmployeeDetails';
+import Weather from '../components/Weather';
+import WeatherDetails from '../components/WeatherDetails';
 
-class EmployeesList extends Component {
-    
+class WeathersList extends Component {
+
     constructor(props, context) {
         super(props, context);
         bind(this)('_renderRow', '_rowOnPress')
     }
-    
+
     static propTypes = {
         dataSource: PropTypes.object.isRequired,
         navigator: PropTypes.object.isRequired
     };
-    
+
     _renderRow(rowData, sectionId, rowId, highlightRow) {
         const _rowHighlightOnPress = () => {
             this._rowOnPress(rowData);
             highlightRow(sectionId, rowId)
         };
-        
+
         return (
             <TouchableHighlight onPress={_rowHighlightOnPress}>
                 <View style={styles.flex1}>
-                    <Employee employee={rowData}/>
+                    <Weather employee={rowData}/>
                 </View>
             </TouchableHighlight>
         )
     }
-    
+
     _rowOnPress(employee) {
         this.props.navigator.push({
             title: `${employee.name.first.toUpperCase()} ${employee.name.last.toUpperCase()}`,
@@ -44,7 +44,7 @@ class EmployeesList extends Component {
             passProps: {employee}
         })
     }
-    
+
     render() {
         return (
             <ListView
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default EmployeesList;
+export default WeathersList;

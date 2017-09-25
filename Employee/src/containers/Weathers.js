@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import {bind} from '../utils/utils';
 import EmployeesApi from '../api/mockEmployeesApi';
-import EmployeesList from '../components/EmployeesList';
+import WeathersList from '../components/WeathersList';
 
-class Employees extends Component {
-    
+class Weathers extends Component {
+
     constructor(props, context) {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         super(props, context);
@@ -21,7 +21,7 @@ class Employees extends Component {
         };
         bind(this)('_renderLoadingView')
     }
-    
+
     _renderLoadingView() {
         return (
             <View>
@@ -29,7 +29,7 @@ class Employees extends Component {
             </View>
         )
     }
-    
+
     componentDidMount() {
         EmployeesApi.getAllEmployees()
             .then(function (data) {
@@ -39,15 +39,15 @@ class Employees extends Component {
                 })
             }.bind(this));
     }
-    
+
     render() {
         if (this.state.isLoading) {
             return this._renderLoadingView();
         }
-        
+
         return (
             <View style={styles.container}>
-                <EmployeesList
+                <WeathersList
                     dataSource={this.state.dataSource}
                     navigator={this.props.navigator}/>
             </View>
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Employees;
+export default Weathers;
