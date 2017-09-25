@@ -6,7 +6,7 @@ import {
     StyleSheet
 } from 'react-native';
 
-const Employee = ({weather}) => {
+const Weather = ({weather}) => {
     return (
         <View style={styles.weather}>
             <Image style={styles.cover}
@@ -26,7 +26,7 @@ const Employee = ({weather}) => {
     )
 };
 
-Employee.propTypes = {
+Weather.propTypes = {
     ...View.propTypes
 };
 
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Employee;
+export default Weather;
