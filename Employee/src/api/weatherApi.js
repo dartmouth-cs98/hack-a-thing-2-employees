@@ -16,7 +16,7 @@ class WeatherApi {
         return new Promise((resolve, reject) => setTimeout(() => resolve(weatherList)), 1200);
     }
     
-    static searchEmployeeByName(qs) {
+    static searchByLocation(qs) {
         return new Promise((resolve, reject) => {
             let result = weatherList.filter(employee => {
                 const fullName = `${weatherList.city.toLowerCase()} ${weatherList.state.toLowerCase()}`;
@@ -28,4 +28,4 @@ class WeatherApi {
     }
 }
 
-export default EmployeesApi;
+export default weatherApi;
