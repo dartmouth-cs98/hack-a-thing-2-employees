@@ -3,15 +3,15 @@ import {
     NavigatorIOS,
     StyleSheet
 } from 'react-native';
-import Employees from './Employees';
+import Weather from './Weather';
 
 
-const EmployeesTab = ({props}) => (
+const WeatherTab = ({props}) => (
     <NavigatorIOS
         style={styles.container}
         initialRoute={{
-            title: 'Employees list',
-            component: Employees
+            title: 'Weather list',
+            component: Weather
         }}/>
 );
 
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default EmployeesTab;
+export default WeatherTab;
