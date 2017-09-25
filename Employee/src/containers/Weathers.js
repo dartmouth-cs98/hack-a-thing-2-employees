@@ -7,7 +7,7 @@ import {
     NavigatorIOS
 } from 'react-native';
 import {bind} from '../utils/utils';
-import weatherApi from '../api/mockweatherApi';
+import EmployeesApi from '../api/mockEmployeesApi';
 import WeathersList from '../components/WeathersList';
 
 class Weathers extends Component {
@@ -31,7 +31,7 @@ class Weathers extends Component {
     }
 
     componentDidMount() {
-        weatherApi.getAllWeatherNodes()
+        EmployeesApi.getAllEmployees()
             .then(function (data) {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(data),

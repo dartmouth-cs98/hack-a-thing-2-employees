@@ -255,14 +255,14 @@ class EmployeesApi {
     static getAllEmployees() {
         return new Promise((resolve, reject) => setTimeout(() => resolve(employees)), 1200);
     }
-    
+
     static searchEmployeeByName(qs) {
         return new Promise((resolve, reject) => {
             let result = employees.filter(employee => {
                 const fullName = `${employee.name.first.toLowerCase()} ${employee.name.last.toLowerCase()}`;
                 return fullName.indexOf(qs.toLowerCase()) > -1;
             });
-            
+
             resolve(result);
         })
     }
