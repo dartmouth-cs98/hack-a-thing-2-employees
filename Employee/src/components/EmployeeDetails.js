@@ -6,30 +6,30 @@ import {
     StyleSheet
 } from 'react-native';
 
-const EmployeeDetails = ({employee}) => (
-    <View style={styles.employee}>
+const EmployeeDetails = ({weather}) => (
+    <View style={styles.weather}>
         <Image style={styles.cover}
-               source={{uri: employee.picture.large}}/>
+               source={{uri: weather.image}}/>
         <View style={styles.info}>
             <Text style={styles.name}>
-                {`${employee.name.first.toUpperCase()} ${employee.name.last.toUpperCase()}`}
+                {`${weather.city.toUpperCase()}, ${weather.state.toUpperCase()}`}
             </Text>
             <Text>
-                <Text style={styles.fontBold}>Phone: </Text>
-                {employee.cell}
+                <Text style={styles.fontBold}>Temperature: </Text>
+                {weather.temp}
             </Text>
             <Text>
-                <Text style={styles.fontBold}>Email: </Text>
-                {employee.email}
+                <Text style={styles.fontBold}>Humidity: </Text>
+                {weather.humidity}
             </Text>
             <Text>
                 <Text style={styles.fontBold}>Location: </Text>
-                {employee.location.city},
-                {employee.location.street}
+                {weather.location.city},
+                {weather.location.street}
             </Text>
             <Text>
                 <Text style={styles.fontBold}>DOB: </Text>
-                {employee.dob}
+                {weather.dob}
             </Text>
         </View>
     </View>
@@ -37,7 +37,7 @@ const EmployeeDetails = ({employee}) => (
 
 EmployeeDetails.propTypes = {
     ...View.propTypes,
-    employee: PropTypes.object.isRequired
+    weather: PropTypes.object.isRequired
 };
 
 const styles = StyleSheet.create({

@@ -6,20 +6,20 @@ import {
     StyleSheet
 } from 'react-native';
 
-const Employee = ({employee}) => {
+const Employee = ({weather}) => {
     return (
-        <View style={styles.employee}>
+        <View style={styles.weather}>
             <Image style={styles.cover}
-                   source={{uri: employee.picture.large}}/>
+                   source={{uri: weather.image}}/>
             <View style={styles.info}>
                 <Text style={styles.name}>
-                    {`${employee.name.first.toUpperCase()} ${employee.name.last.toUpperCase()}`}
+                    {`${weather.city.toUpperCase()}, ${weather.state.toUpperCase()}`}
                 </Text>
                 <Text>
-                    phone: {employee.cell}
+                    Temperature: {weather.temp}
                 </Text>
                 <Text>
-                    {employee.email}
+                    Humidity: {weather.humidity}
                 </Text>
             </View>
         </View>

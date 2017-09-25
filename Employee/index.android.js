@@ -11,13 +11,14 @@ import {
   Text,
   View
 } from 'react-native';
+import App from './src/containers/App';
 
 export default class Employee extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Testing here!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
