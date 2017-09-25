@@ -22,15 +22,6 @@ const WeatherDetails = ({weather}) => (
                 <Text style={styles.fontBold}>Humidity: </Text>
                 {weather.humidity}
             </Text>
-            <Text>
-                <Text style={styles.fontBold}>Location: </Text>
-                {weather.location.city},
-                {weather.location.street}
-            </Text>
-            <Text>
-                <Text style={styles.fontBold}>DOB: </Text>
-                {weather.dob}
-            </Text>
         </View>
     </View>
 );
