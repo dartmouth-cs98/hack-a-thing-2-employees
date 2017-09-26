@@ -10,17 +10,16 @@ import {bind} from '../utils/utils';
 import WeatherApi from '../api/mockWeatherApi';
 import WeathersList from '../components/WeathersList';
 
-class Search extends Component {
+class CurrentWeather extends Component {
 
     constructor(props, context) {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         super(props, context);
         this.state = {
-            text: 'Search by location',
             dataSource: ds.cloneWithRows([])
         };
 
-        bind(this)('_searchInputOnChange', '_getAllWeatherNodesAndUpdate')
+        bind(this)('_getAllWeatherNodesAndUpdate')
     }
 
     componentDidMount() {
@@ -28,7 +27,7 @@ class Search extends Component {
     }
 
     _getAllWeatherNodesAndUpdate() {
-        WeatherApi.getAllWeatherNodes()
+        WeatherApi.getCurrentWeatherNode()
             .then(function (data) {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(data),
@@ -37,34 +36,10 @@ class Search extends Component {
             }.bind(this));
     }
 
-    _searchInputOnChange(text) {
-        if (text.length < 1) {
-            this._getAllWeatherNodesAndUpdate();
-            this.setState({
-                text
-            });
-        }
-
-        WeatherApi.searchByLocation(text)
-            .then(function (res) {
-                this.setState({
-                    text,
-                    dataSource: this.state.dataSource.cloneWithRows(res)
-                })
-            }.bind(this))
-    }
-
     render() {
         return (
-            <View style={styles.container} enableEmptySections={true}>
-                <TextInput
-                    style={styles.searchInput}
-                    autoCorrect={false}
-                    clearTextOnFocus={true}
-                    value={this.state.text}
-                    onChangeText={this._searchInputOnChange}/>
+            <View style={styles.container}>
                 <WeathersList
-                    enableEmptySections={true}
                     dataSource={this.state.dataSource}
                     navigator={this.props.navigator}/>
             </View>
@@ -89,4 +64,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Search;
+export default CurrentWeather;

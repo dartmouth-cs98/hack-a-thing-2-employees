@@ -111,9 +111,28 @@ const weatherList = [
         "image": "https://clipartion.com/wp-content/uploads/2015/11/weather-symbols-clip-art-at-vector-clip-art-online.png"
     }];
 
+const currentWeather = [
+  {
+    "city": "Hanover",
+    "state": "NH",
+    "weatherForecast": {
+        "day": "Wednesday",
+        "description": "Partly Cloudy",
+        "temp": "87°F / 56°F",
+        "wind": "SSW 7 mph",
+        "humidity": "72%",
+    },
+    "image": "https://clipartion.com/wp-content/uploads/2015/11/weather-symbols-clip-art-at-vector-clip-art-online.png"
+  }
+];
+
 class WeatherApi {
     static getAllWeatherNodes() {
         return new Promise((resolve, reject) => setTimeout(() => resolve(weatherList)), 1200);
+    }
+
+    static getCurrentWeatherNode() {
+        return new Promise((resolve, reject) => setTimeout(() => resolve(currentWeather)), 1200);
     }
 
     static searchByLocation(qs) {
