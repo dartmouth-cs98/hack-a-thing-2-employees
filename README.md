@@ -1,4 +1,4 @@
-# Hack-A-Thing-2: Employees
+# Hack-A-Thing-2: Weather
 
 ### Build Description
 This is a weather app that is built with React-Native. It takes weather information from a mock api and displays it on screen.
