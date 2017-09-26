@@ -7,7 +7,7 @@ import {
     NavigatorIOS
 } from 'react-native';
 import {bind} from '../utils/utils';
-import WeatherApi from '../api/weatherApi';
+import WeatherApi from '../api/mockWeatherApi';
 import WeathersList from '../components/WeathersList';
 
 class Weathers extends Component {

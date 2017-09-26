@@ -31,17 +31,17 @@ class WeathersList extends Component {
         return (
             <TouchableHighlight onPress={_rowHighlightOnPress}>
                 <View style={styles.flex1}>
-                    <Weather employee={rowData}/>
+                    <Weather weather={rowData}/>
                 </View>
             </TouchableHighlight>
         )
     }
 
-    _rowOnPress(employee) {
+    _rowOnPress(weather) {
         this.props.navigator.push({
-            title: `${employee.name.first.toUpperCase()} ${employee.name.last.toUpperCase()}`,
-            component: EmployeeDetails,
-            passProps: {employee}
+            title: `${weather.city.toUpperCase()} ${weather.state.toUpperCase()}`,
+            component: WeatherDetails,
+            passProps: {weather}
         })
     }
 

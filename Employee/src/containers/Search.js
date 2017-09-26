@@ -7,7 +7,7 @@ import {
     NavigatorIOS
 } from 'react-native';
 import {bind} from '../utils/utils';
-import WeatherApi from '../api/weatherApi';
+import WeatherApi from '../api/mockWeatherApi';
 import WeathersList from '../components/WeathersList';
 
 class Search extends Component {
@@ -20,14 +20,14 @@ class Search extends Component {
             dataSource: ds.cloneWithRows([])
         };
 
-        bind(this)('_searchInputOnChange', '_getAllEmployeesAndUpdateData')
+        bind(this)('_searchInputOnChange', '_getAllWeatherNodesAndUpdate')
     }
 
     componentDidMount() {
-        this._getAllEmployeesAndUpdateData();
+        this._getAllWeatherNodesAndUpdate();
     }
 
-    _getAllEmployeesAndUpdateData() {
+    _getAllWeatherNodesAndUpdate() {
         WeatherApi.getAllWeatherNodes()
             .then(function (data) {
                 this.setState({
@@ -39,7 +39,7 @@ class Search extends Component {
 
     _searchInputOnChange(text) {
         if (text.length < 1) {
-            this._getAllEmployeesAndUpdateData();
+            this._getAllWeatherNodesAndUpdate();
             this.setState({
                 text
             });
@@ -56,7 +56,7 @@ class Search extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.container} enableEmptySections={true}>
                 <TextInput
                     style={styles.searchInput}
                     autoCorrect={false}
@@ -64,6 +64,7 @@ class Search extends Component {
                     value={this.state.text}
                     onChangeText={this._searchInputOnChange}/>
                 <WeathersList
+                    enableEmptySections={true}
                     dataSource={this.state.dataSource}
                     navigator={this.props.navigator}/>
             </View>

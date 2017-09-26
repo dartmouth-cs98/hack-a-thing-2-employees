@@ -14,13 +14,24 @@ const WeatherDetails = ({weather}) => (
             <Text style={styles.name}>
                 {`${weather.city.toUpperCase()}, ${weather.state.toUpperCase()}`}
             </Text>
+            <Text style={styles.subtitle}>
+                {weather.weatherForecast.day}
+            </Text>
+            <Text>
+                <Text style={styles.fontBold}>Description: </Text>
+                {weather.weatherForecast.description}
+            </Text>
             <Text>
                 <Text style={styles.fontBold}>Temperature: </Text>
-                {weather.temp}
+                {weather.weatherForecast.temp}
             </Text>
             <Text>
                 <Text style={styles.fontBold}>Humidity: </Text>
-                {weather.humidity}
+                {weather.weatherForecast.humidity}
+            </Text>
+            <Text>
+                <Text style={styles.fontBold}>Wind: </Text>
+                {weather.weatherForecast.wind}
             </Text>
         </View>
     </View>
@@ -55,6 +66,13 @@ const styles = StyleSheet.create({
     name: {
         alignSelf: 'center',
         marginBottom: 12,
+        fontSize: 20,
+        fontWeight: '700',
+        color: '#222222'
+    },
+    subtitle: {
+        alignSelf: 'center',
+        marginBottom: 8,
         fontSize: 16,
         fontWeight: '700',
         color: '#222222'

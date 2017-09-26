@@ -16,10 +16,10 @@ const Weather = ({weather}) => {
                     {`${weather.city.toUpperCase()}, ${weather.state.toUpperCase()}`}
                 </Text>
                 <Text>
-                    Temperature: {weather.temp}
+                    Hi/Low Temp: {weather.weatherForecast.temp}
                 </Text>
                 <Text>
-                    Humidity: {weather.humidity}
+                    Humidity: {weather.weatherForecast.humidity}
                 </Text>
             </View>
         </View>
@@ -31,7 +31,7 @@ Weather.propTypes = {
 };
 
 const styles = StyleSheet.create({
-    employee: {
+    weather: {
         flex: 1,
         flexDirection: 'row',
         padding: 5,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         padding: 20
     },
     name: {
-        marginBottom: 12,
+        marginBottom: 6,
         fontSize: 16,
         fontWeight: '700',
         color: '#222222'

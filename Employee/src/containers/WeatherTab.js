@@ -10,7 +10,7 @@ const WeatherTab = ({props}) => (
     <NavigatorIOS
         style={styles.container}
         initialRoute={{
-            title: 'Weather list',
+            title: 'Weather List',
             component: Weathers
         }}/>
 );

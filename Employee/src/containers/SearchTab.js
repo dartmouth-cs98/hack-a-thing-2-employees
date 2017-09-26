@@ -10,7 +10,7 @@ const SearchTab = ({props}) => (
     <NavigatorIOS
         style={styles.flex1}
         initialRoute={{
-            title: 'Search employees',
+            title: 'Search Location',
             component: Search
         }}/>
 );
